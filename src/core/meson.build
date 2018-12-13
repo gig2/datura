@@ -1,6 +1,14 @@
-core_sources = files([])
+core_sources = files(['distance.cpp',
+                      'ellipsoid.cpp',
+                      'nuage.cpp',
+                      'quaternion.cpp',])
 
-core_headers = files([])
+
+core_headers = files(['distance.h',
+                      'ellipsoid.h',
+                      'mode.h',
+                      'nuage.h',
+                      'quaternion.h',])
 
 core_include = include_directories('.')
 
