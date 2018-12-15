@@ -6,10 +6,10 @@
 
 #include "mode.h"
 
-class Transformationimpl
+class TransformationImpl
 {
 public:
-    virtual ~Transformationimpl();
+    virtual ~TransformationImpl();
     virtual glm::mat4 scale( glm::vec3 scale )                                 = 0;
     virtual void rotate( glm::vec3 axis, float angle )                         = 0;
     virtual glm::mat4 translate( glm::mat4 matrix, glm::vec3 direction )       = 0;

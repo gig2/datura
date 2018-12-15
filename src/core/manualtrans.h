@@ -4,7 +4,7 @@
 #include "mode.h"
 #include "transformationimpl.h"
 
-class Manualtrans : public Transformationimpl
+class Manualtrans : public TransformationImpl
 {
 public:
     Manualtrans();

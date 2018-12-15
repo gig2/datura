@@ -1,8 +1,8 @@
 #include "transformation.h"
 
-Transformation::Transformation( std::unique_ptr<Transformationimpl> ptr )
+Transformation::Transformation( std::unique_ptr<TransformationImpl> ptr )
 {
-    impl_ = std::unique_ptr<Transformationimpl>( ptr.get() );
+    impl_ = std::unique_ptr<TransformationImpl>( ptr.get() );
 }
 
 glm::mat4 Transformation::scale( glm::vec3 scale )

@@ -8,13 +8,14 @@
 #include "mode.h"
 #include "transformationimpl.h"
 
+
 class Transformation
 {
 private:
-    std::unique_ptr<Transformationimpl> impl_;
+    std::unique_ptr<TransformationImpl> impl_;
 
 public:
-    Transformation( std::unique_ptr<Transformationimpl> transformationimpl );
+    Transformation( std::unique_ptr<TransformationImpl> transformationimpl );
     glm::mat4 scale( glm::vec3 scale );
     void rotate( glm::vec3 axis, float angle );
     glm::mat4 translate( glm::mat4 matrix, glm::vec3 direction );
