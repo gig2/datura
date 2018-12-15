@@ -7,7 +7,6 @@
 
 #include "mode.h"
 #include "quaternion.h"
-#include "transformationfactory.h"
 #include "transformationimpl.h"
 
 

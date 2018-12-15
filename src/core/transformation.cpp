@@ -1,4 +1,5 @@
 #include "transformation.h"
+#include "transformationfactory.h"
 
 Transformation::Transformation( Mode const& mode )
     : impl_{createTransformation( mode )}
