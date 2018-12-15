@@ -2,14 +2,20 @@ set (core_sources
   distance.cpp
   ellipsoid.cpp
   nuage.cpp
-  quaternion.cpp)
+  quaternion.cpp
+  transformation.cpp
+  transformationimpl.cpp
+  manualtrans.cpp)
 
 set (core_headers
   distance.h
   ellipsoid.h
   mode.h
   nuage.h
-  quaternion.h)
+  quaternion.h
+  transformation.h
+  transformationimpl.h
+  manualtrans.h)
 
 add_library(datura_core ${core_sources} ${core_headers})
 
