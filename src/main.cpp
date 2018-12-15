@@ -11,7 +11,7 @@ int main( int argc, char *argv[] )
     MainWindow w;
     w.show();
 
-    /*manualtrans mt = manualtrans();
+    /*Manualtrans mt = Manualtrans();
     //glm::mat4 mtest = mt.translate(glm::mat4(), glm::vec3(10,0,0));
     glm::mat4 mtest = mt.scale(glm::vec3(2.0f, 2.0f, 2.0f));
     glm::vec4 vtest = mt.transformVector(mtest, glm::vec4(2.1f, 1.5f, 0.7f, 0));
