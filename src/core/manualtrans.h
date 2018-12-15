@@ -8,11 +8,12 @@ class manualtrans : public transformationimpl
 {
 public:
     manualtrans();
-    void scale(glm::vec3 scale);
+    glm::mat4 scale(glm::vec3 scale);
     void rotate(glm::vec3 axis, float angle);
-    void translate(glm::vec3 direction);
+    glm::mat4 translate(glm::mat4 matrix, glm::vec3 direction);
     void lookAt(glm::vec3 position, glm::vec3 target, glm::vec3 up);
     void perspective(float fov, float aspect, float near, float far);
+    glm::vec4 transformVector(glm::mat4 matrix, glm::vec4 vector);
 };
 
 #endif // MANUALTRANS_H
