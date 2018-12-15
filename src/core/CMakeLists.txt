@@ -4,6 +4,7 @@ set (core_sources
   nuage.cpp
   quaternion.cpp
   transformation.cpp
+  transformationfactory.cpp
   transformationimpl.cpp
   manualtrans.cpp)
 
@@ -14,6 +15,7 @@ set (core_headers
   nuage.h
   quaternion.h
   transformation.h
+  transformationfactory.h
   transformationimpl.h
   manualtrans.h)
 

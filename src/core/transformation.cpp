@@ -1,36 +1,37 @@
 #include "transformation.h"
 
-Transformation::Transformation( std::unique_ptr<TransformationImpl> ptr )
+Transformation::Transformation( Mode const& mode )
+    : impl_{createTransformation( mode )}
 {
-    impl_ = std::unique_ptr<TransformationImpl>( ptr.get() );
 }
 
-glm::mat4 Transformation::scale( glm::vec3 scale )
+glm::mat4 Transformation::scale( glm::vec3 const& scale ) const
 {
-    return impl_.get()->scale( scale );
+    return impl_->scale( scale );
 }
 
-void Transformation::rotate( glm::vec3 axis, float angle )
+Quaternion Transformation::rotate( glm::vec3 const& axis, float angle ) const
 {
-    impl_.get()->rotate( axis, angle );
+    return impl_->rotate( axis, angle );
 }
 
-glm::mat4 Transformation::translate( glm::mat4 matrix, glm::vec3 direction )
+glm::mat4 Transformation::translate( glm::vec3 const& direction ) const
 {
-    return impl_.get()->translate( matrix, direction );
+    return impl_->translate( direction );
 }
 
-void Transformation::lookAt( glm::vec3 position, glm::vec3 target, glm::vec3 up )
+glm::mat4 Transformation::lookAt( glm::vec3 const& position, glm::vec3 const& target,
+                                  glm::vec3 const& up ) const
 {
-    impl_.get()->lookAt( position, target, up );
+    return impl_->lookAt( position, target, up );
 }
 
-void Transformation::perspective( float fov, float aspect, float near, float far )
+glm::mat4 Transformation::perspective( float fov, float aspect, float near, float far ) const
 {
-    impl_.get()->perspective( fov, aspect, near, far );
+    return impl_->perspective( fov, aspect, near, far );
 }
 
-glm::vec4 Transformation::transformVector( glm::mat4 matrix, glm::vec4 vector )
+glm::vec4 Transformation::transformVector( glm::mat4 const& matrix, glm::vec4 const& vector ) const
 {
-    return impl_.get()->transformVector( matrix, vector );
+    return impl_->transformVector( matrix, vector );
 }
