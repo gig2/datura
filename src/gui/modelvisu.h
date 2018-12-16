@@ -41,6 +41,9 @@ private:
 
     Ellipsoid ellipsoid{Mode::manual};
 
+    Nuage cloud_{1, 0.01f, Distance{glm::vec3{1.f, 1.f, 1.f}}};
+
+    std::shared_ptr<MeshNode<Nuage>> nuageNode_;
 
 
 

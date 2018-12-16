@@ -60,6 +60,9 @@ void ModelVisu::initializeGL()
     }
 
     glClearColor( .0f, 0.f, 0.f, .0f );
+
+
+    cloud_ = ellipsoid.computeTransform();
 }
 
 void ModelVisu::resizeGL( int width, int height )
