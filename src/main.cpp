@@ -3,8 +3,8 @@
 #include <QApplication>
 #include <iostream>
 
-#include "manualtrans.h"
 #include "ellipsoid.h"
+#include "manualtrans.h"
 #include "mode.h"
 
 int main( int argc, char *argv[] )
@@ -13,7 +13,7 @@ int main( int argc, char *argv[] )
     MainWindow w;
     w.show();
 
-    Ellipsoid e = Ellipsoid(Mode::manual);
+    Ellipsoid e{Mode::manual};
 
     /*Manualtrans mt = Manualtrans();
     //glm::mat4 mtest = mt.translate(glm::mat4(), glm::vec3(10,0,0));
