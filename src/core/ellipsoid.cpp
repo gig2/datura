@@ -6,7 +6,7 @@
 Ellipsoid::Ellipsoid( Mode const& mode )
     : mode_{mode}
     , orientation_{Quaternion( 1.f, 0.f, 0.f, 0.f )}
-    , cloud_{createCloud( 500, 0.0005 )}
+    , cloud_{createCloud( 5000, 0.00005 )}
     , transformation_{mode}
 
 {
@@ -15,6 +15,7 @@ Ellipsoid::Ellipsoid( Mode const& mode )
 Nuage Ellipsoid::createCloud( int n, float dmin )
 {
     Nuage cloud_to_return = Nuage( n, dmin, Distance{scale_} );
+
     cloud_to_return.generateCloud();
     return cloud_to_return;
 }
@@ -22,6 +23,16 @@ Nuage Ellipsoid::createCloud( int n, float dmin )
 void Ellipsoid::setScale( glm::vec3 const& scale )
 {
     scale_ = scale;
+}
+
+void Ellipsoid::setCenter( glm::vec3 const& center )
+{
+    center_ = center;
+}
+
+void Ellipsoid::setOrientation( Quaternion const& orient )
+{
+    orientation_ = orient;
 }
 
 Distance Ellipsoid::createDistance( glm::vec3 scale )
