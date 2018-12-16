@@ -17,6 +17,8 @@
 #include <memory>
 #include <vector>
 
+#include "ellipsoid.h"
+
 class ModelVisu : public QOpenGLWidget
 {
     Q_OBJECT
@@ -35,6 +37,12 @@ private:
     // get them from shader
     int const positionLocation_{0};
     int const colorLocation_{1};
+
+
+    Ellipsoid ellipsoid{Mode::manual};
+
+
+
 
     S3DE::Shader simpleShader_;
 };

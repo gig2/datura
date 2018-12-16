@@ -3,8 +3,8 @@
 #include <QApplication>
 #include <iostream>
 
-#include "manualtrans.h"
 #include "ellipsoid.h"
+#include "manualtrans.h"
 #include "mode.h"
 
 int main( int argc, char *argv[] )
@@ -13,14 +13,16 @@ int main( int argc, char *argv[] )
     MainWindow w;
     w.show();
 
-    Ellipsoid e = Ellipsoid(Mode::manual);
-    Nuage n = e.createCloud(50, 0.20f);
-    //glm::vec3 vtest = n.cloudBarycenter();
+    Ellipsoid e{Mode::manual};
+    Nuage n = e.createCloud( 50, 0.20f );
+    // glm::vec3 vtest = n.cloudBarycenter();
     glm::mat3 mtest3 = n.inertiaMatrix();
 
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
-            std::cout << mtest3[j][i] << " ";
+    for ( int i = 0; i < 3; i++ )
+    {
+        for ( int j = 0; j < 3; j++ )
+        {
+            std::cout << mtest3[ j ][ i ] << " ";
         }
         std::cout << std::endl;
     }
