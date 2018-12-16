@@ -56,3 +56,31 @@ void Nuage::generateCloud()
     }
     std::cout << points_.size() << std::endl;*/
 }
+
+void Nuage::refreshBuffer()
+{
+    //
+    int const numberColors = 3;
+    int const numIndexes   = points_.size();
+
+    indexes_.clear();
+    indexes_.reserve( numIndexes );
+
+    indexes_.push_back( 0 );
+    indexes_.push_back( 1 );
+    indexes_.push_back( 2 );
+
+    for ( unsigned int i = 0; i < numIndexes; ++i )
+    {
+        indexes_.push_back( i );
+    }
+
+    colors_.clear();
+    colors_.reserve( numIndexes * numberColors );
+    for ( unsigned int i = 0; i < numIndexes * numberColors; i += 3 )
+    {
+        colors_.push_back( 1.f );
+        colors_.push_back( 1.f );
+        colors_.push_back( 1.f );
+    }
+}

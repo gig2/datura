@@ -18,6 +18,7 @@
 #include <vector>
 
 #include "ellipsoid.h"
+#include "transformation.h"
 
 class ModelVisu : public QOpenGLWidget
 {
@@ -43,9 +44,12 @@ private:
 
     Nuage cloud_{1, 0.01f, Distance{glm::vec3{1.f, 1.f, 1.f}}};
 
-    std::shared_ptr<MeshNode<Nuage>> nuageNode_;
+    std::shared_ptr<MeshNode<Nuage>> cloudNode_;
 
+    Transformation transformation_{Mode::manual};
 
+    glm::mat4 projection_;
+    glm::mat4 look_;
 
     S3DE::Shader simpleShader_;
 };

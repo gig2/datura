@@ -22,6 +22,8 @@ public:
 
     Nuage computeTransform();
 
+    void setScale( glm::vec3 const& scale );
+
 
 private:
     Mode const mode_;
