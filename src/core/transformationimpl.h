@@ -1,21 +1,23 @@
 #ifndef TRANSFORMATIONIMPL_H
 #define TRANSFORMATIONIMPL_H
 
-#include <glm/vec3.hpp>
 #include <glm/mat4x4.hpp>
+#include <glm/vec3.hpp>
 
 #include "mode.h"
+#include "quaternion.h"
 
-class transformationimpl
+class TransformationImpl
 {
 public:
-    virtual ~transformationimpl();
-    virtual glm::mat4 scale(glm::vec3 scale) = 0;
-    virtual void rotate(glm::vec3 axis, float angle) = 0;
-    virtual glm::mat4 translate(glm::mat4 matrix, glm::vec3 direction) = 0;
-    virtual void lookAt(glm::vec3 position, glm::vec3 target, glm::vec3 up) = 0;
-    virtual void perspective(float fov, float aspect, float near, float far) = 0;
-    virtual glm::vec4 transformVector(glm::mat4 matrix, glm::vec4 vector) = 0;
+    virtual ~TransformationImpl();
+    virtual glm::mat4 scale( glm::vec3 const& scale ) const                                     = 0;
+    virtual Quaternion rotate( glm::vec3 const& axis, float angle ) const                       = 0;
+    virtual glm::mat4 translate( glm::vec3 const& direction ) const                             = 0;
+    virtual glm::mat4 lookAt( glm::vec3 const& position, glm::vec3 const& target,
+                              glm::vec3 const& up ) const                                       = 0;
+    virtual glm::mat4 perspective( float fov, float aspect, float near, float far ) const       = 0;
+    virtual glm::vec4 transformVector( glm::mat4 const& matrix, glm::vec4 const& vector ) const = 0;
 };
 
 #endif // TRANSFORMATIONIMPL_H

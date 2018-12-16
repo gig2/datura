@@ -1,3 +1,3 @@
 #include "transformationimpl.h"
 
-transformationimpl::~transformationimpl(){}
+TransformationImpl::~TransformationImpl() {}
