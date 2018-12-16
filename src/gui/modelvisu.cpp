@@ -64,24 +64,22 @@ void ModelVisu::initializeGL()
 
 
     // cloud_ = Nuage{500, 0.001, Distance{glm::vec3{1.f, 1.f, 1.f}}};
-    ellipsoid.setScale( glm::vec3{2.f, 1.f, 1.f} );
+    ellipsoid.setScale( glm::vec3{2.f, 1.f, 3.f} );
     ellipsoid.setCenter( glm::vec3{-5.f, 0.f, 0.f} );
-    ellipsoid.setOrientation( Quaternion{
-        static_cast<float>( std::cos( -0.5 * ( M_PI / 6.f ) ) ), 0.f, 0.f,
-        static_cast<float>( std::sin(
-            -0.5
-            * ( M_PI
-                / 6.f ) ) )} ); // transformation_.rotate( glm::vec3{0.f, 0.f, 1.f}, M_PI / 6.f ) );
+    ellipsoid.setOrientation(
+        Quaternion{static_cast<float>( std::cos( 0.5 * ( M_PI / 6.f ) ) ), 0.f,
+                   static_cast<float>( std::sin( 0.5 * ( M_PI / 6.f ) ) ),
+                   0.f} ); // transformation_.rotate( glm::vec3{0.f, 0.f, 1.f}, M_PI / 6.f ) );
     cloud_ = ellipsoid.computeTransform();
     cloud_.generateCloud();
 
-    look_ = transformation_.lookAt( glm::vec3{0.f, 2.f, -20.f}, glm::vec3{0.f, 0.f, 0.f},
-                                    glm::vec3{0.f, 1.f, 0.f} );
+    // look_ = transformation_.lookAt( glm::vec3{0.f, 2.f, -20.f}, glm::vec3{0.f, 0.f, 0.f},
+    //                                 glm::vec3{0.f, 1.f, 0.f} );
 
     // ok manual look At not working
 
-    look_ = glm::lookAt( glm::vec3{-1.f, 0.f, -12.f}, glm::vec3{0.f, 0.f, 0.f},
-                         glm::vec3{0.f, 1.f, 0.f} );
+    look_ = glm::lookAt( glm::vec3{0.f, -10.f, 0.f}, glm::vec3{0.f, 0.f, 0.f},
+                         glm::vec3{0.f, 0.f, 1.f} );
 
     cloudNode_ = std::make_shared<MeshNode<Nuage>>( cloud_ );
     cloud_.refreshBuffer();
