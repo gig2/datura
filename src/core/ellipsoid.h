@@ -9,18 +9,19 @@
 
 #include "mode.h"
 #include "quaternion.h"
+#include "nuage.h"
 
 class Ellipsoid
 {
 public:
     explicit Ellipsoid( Mode const& mode );
-
-
-
+    Nuage createCloud(int n, float dmin);
+    Distance createDistance(glm::vec3 scale);
 
 private:
     Mode const mode_;
     glm::vec3 scale_;
     glm::vec3 center_;
     Quaternion orientation_;
+    Nuage cloud_;
 };

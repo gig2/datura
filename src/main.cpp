@@ -4,6 +4,8 @@
 #include <iostream>
 
 #include "manualtrans.h"
+#include "ellipsoid.h"
+#include "mode.h"
 
 int main( int argc, char *argv[] )
 {
@@ -11,9 +13,13 @@ int main( int argc, char *argv[] )
     MainWindow w;
     w.show();
 
+    Ellipsoid e = Ellipsoid(Mode::manual);
+
     /*Manualtrans mt = Manualtrans();
     //glm::mat4 mtest = mt.translate(glm::mat4(), glm::vec3(10,0,0));
-    glm::mat4 mtest = mt.scale(glm::vec3(2.0f, 2.0f, 2.0f));
+    //glm::mat4 mtest = mt.scale(glm::vec3(2.0f, 2.0f, 2.0f));
+    //glm::mat4 mtest = mt.lookAt(glm::vec3(0,0,-15), glm::vec3(0,0,0), glm::vec3(0,1,0));
+    glm::mat4 mtest = mt.perspective(35.f, 1.f, 0.1f, 100.f);
     glm::vec4 vtest = mt.transformVector(mtest, glm::vec4(2.1f, 1.5f, 0.7f, 0));
 
     for(int i = 0 ; i < 4; i++){
