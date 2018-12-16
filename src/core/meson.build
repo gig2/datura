@@ -8,7 +8,8 @@ core_sources = files(['distance.cpp',
                       'transformationimpl.cpp'])
 
 
-core_headers = files(['distance.h',
+core_headers = files(['constants.h',
+                      'distance.h',
                       'ellipsoid.h',
                       'mode.h',
                       'nuage.h',
