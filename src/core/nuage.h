@@ -14,6 +14,7 @@ private:
     std::vector<glm::vec3> points_;
 
 public:
+    Nuage(){}
     Nuage(int n, float dmin);
     void generateCloud();
 };

@@ -5,7 +5,6 @@
 class Quaternion
 {
 private:
-    Quaternion();
     float x_;
     float y_;
     float z_;
