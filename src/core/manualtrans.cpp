@@ -41,35 +41,34 @@ glm::mat4 Manualtrans::translate( glm::vec3 const& direction ) const
 glm::mat4 Manualtrans::lookAt( glm::vec3 const& position, glm::vec3 const& target,
                                glm::vec3 const& up ) const
 {
-    glm::mat4 matrix_to_return;
+    glm::mat4 matrix_to_return{1.f};
     glm::vec3 X, Y, Z;
 
-    //New coordinate system, X points to the left, Y up and Z out of the view.
+    //New coordinate system, X points to the left, Y up and Z forward.
     Z = position - target; //line of sight
     //Get a vector with the same direction as Z but with norm of 1.
-    glm::normalize(Z);
-    Y = up;
+    Z = glm::normalize(Z);
+    Y = glm::normalize(up);
     X = glm::cross(Y, Z);
+    X = glm::normalize(X);
 
     // Cross product of Z and X, that is to say get the vector which
     // is perdendicular to Z and X.
     Y = glm::cross(Z, X);
-    glm::normalize(X);
-    glm::normalize(Y);
 
     matrix_to_return[0][0] = X.x;
     matrix_to_return[1][0] = X.y;
     matrix_to_return[2][0] = X.z;
     // Dot product of X and position, that is to say X * position.
-    matrix_to_return[3][0] = -glm::dot(X, position);
+    matrix_to_return[3][0] = - glm::dot(X, position);
     matrix_to_return[0][1] = Y.x;
     matrix_to_return[1][1] = Y.y;
     matrix_to_return[2][1] = Y.z;
-    matrix_to_return[3][1] = -glm::dot(Y, position);
+    matrix_to_return[3][1] = - glm::dot(Y, position);
     matrix_to_return[0][2] = Z.x;
     matrix_to_return[1][2] = Z.y;
     matrix_to_return[2][2] = Z.z;
-    matrix_to_return[3][2] = -glm::dot(Z, position);
+    matrix_to_return[3][2] = - glm::dot(Z, position);
     matrix_to_return[0][3] = 0;
     matrix_to_return[1][3] = 0;
     matrix_to_return[2][3] = 0;

@@ -71,6 +71,6 @@ glm::vec3 Nuage::cloudBarycenter(){
     barycenter_to_return[ dirY ] /= nbpoints;
     barycenter_to_return[ dirZ ] /= nbpoints;
 
-    std::cout << barycenter_to_return.x << " " << barycenter_to_return.y << " " << barycenter_to_return.z << std::endl;
+    //std::cout << barycenter_to_return.x << " " << barycenter_to_return.y << " " << barycenter_to_return.z << std::endl;
     return barycenter_to_return;
 }
