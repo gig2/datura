@@ -1,4 +1,5 @@
 set (core_sources
+  autotrans.cpp
   distance.cpp
   ellipsoid.cpp
   nuage.cpp
@@ -9,6 +10,7 @@ set (core_sources
   manualtrans.cpp)
 
 set (core_headers
+  autotrans.h
   constants.h
   distance.h
   ellipsoid.h
