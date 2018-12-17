@@ -17,8 +17,9 @@ private:
 public:
     Nuage( int n, float dmin, Distance const& distance );
     void generateCloud();
+    glm::vec3 cloudBarycenter();
 
-    auto begin() { return std::begin( points_ ); };
+    auto begin() { return std::begin( points_ ); }
     auto end() { return std::end( points_ ); }
 
     auto const begin() const { return std::cbegin( points_ ); }

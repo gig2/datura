@@ -11,7 +11,6 @@ Ellipsoid::Ellipsoid( Mode const& mode )
 Nuage Ellipsoid::createCloud( int n, float dmin )
 {
     Nuage cloud_to_return = Nuage( n, dmin, Distance{scale_} );
-    ;
     cloud_to_return.generateCloud();
     return cloud_to_return;
 }

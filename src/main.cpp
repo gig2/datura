@@ -14,6 +14,8 @@ int main( int argc, char *argv[] )
     w.show();
 
     Ellipsoid e = Ellipsoid(Mode::manual);
+    Nuage n = e.createCloud(50, 0.20);
+    glm::vec3 vtest = n.cloudBarycenter();
 
     /*Manualtrans mt = Manualtrans();
     //glm::mat4 mtest = mt.translate(glm::mat4(), glm::vec3(10,0,0));

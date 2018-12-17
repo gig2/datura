@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <numeric>
 #include <random>
 
 #include "constants.h"
@@ -55,4 +56,21 @@ void Nuage::generateCloud()
         std::cout << points_[i].x << " " << points_[i].y << " " << points_[i].z << std::endl;
     }
     std::cout << points_.size() << std::endl;*/
+}
+
+glm::vec3 Nuage::cloudBarycenter(){
+    glm::vec3 barycenter_to_return{0.f, 0.f, 0.f};
+    int nbpoints = points_.size();
+
+    for(int i = 0 ; i < nbpoints; i++){
+        barycenter_to_return[ dirX ] += points_[ i ][ dirX ];
+        barycenter_to_return[ dirY ] += points_[ i ][ dirY ];
+        barycenter_to_return[ dirZ ] += points_[ i ][ dirZ ];
+    }
+    barycenter_to_return[ dirX ] /= nbpoints;
+    barycenter_to_return[ dirY ] /= nbpoints;
+    barycenter_to_return[ dirZ ] /= nbpoints;
+
+    std::cout << barycenter_to_return.x << " " << barycenter_to_return.y << " " << barycenter_to_return.z << std::endl;
+    return barycenter_to_return;
 }
