@@ -9,6 +9,7 @@ set (core_sources
   manualtrans.cpp)
 
 set (core_headers
+  constants.h
   distance.h
   ellipsoid.h
   mode.h

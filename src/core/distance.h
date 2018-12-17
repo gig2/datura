@@ -8,7 +8,6 @@ private:
     glm::vec3 scale_;
 
 public:
-    Distance(){}
-    Distance(glm::vec3 s);
-    void operate();
+    explicit Distance( glm::vec3 const& s );
+    float operator()( glm::vec3 const& lhs, glm::vec3 const& rhs );
 };
