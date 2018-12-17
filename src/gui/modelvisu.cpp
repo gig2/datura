@@ -15,6 +15,8 @@
 #include <Eigen/Dense>
 #include <Eigen/Eigenvalues>
 
+#include "barycenter.h"
+
 ModelVisu::ModelVisu( QWidget *parent )
     : QOpenGLWidget( parent )
 {
@@ -45,9 +47,6 @@ void ModelVisu::initializeGL()
         throw std::runtime_error(
             reinterpret_cast<const char *>( glewGetErrorString( initGlew ) ) );
     }
-
-
-
 
     simpleShader_.setVertexShader( "shader/color.vert" );
     simpleShader_.setFragmentShader( "shader/color.frag" );
@@ -89,76 +88,16 @@ void ModelVisu::initializeGL()
 
     cloudNode_->updateVertexBuffer();
 
+    pca.computePca( std::cbegin( cloud_ ), std::cend( cloud_ ) );
 
-    glm::vec3 barycentre
-        = std::accumulate( std::cbegin( cloud_ ), std::cend( cloud_ ), glm::vec3{0.f, 0.f, 0.f} );
-
-    barycentre /= std::distance( std::cbegin( cloud_ ), std::cend( cloud_ ) );
-
-
-    centeredPoints_.clear();
-    centeredPoints_.resize( std::distance( std::cbegin( cloud_ ), std::cend( cloud_ ) ) );
-
-    // glm::vec3 barycentre{-5.f, 0.f, 0.f};
-
-    recenter( barycentre, std::cbegin( cloud_ ), std::cend( cloud_ ),
-              std::back_inserter( centeredPoints_ ) );
-
-
-    float sx2{0.f};
-    float sy2{0.f};
-    float sz2{0.f};
-
-    float sxy{0.f};
-    float sxz{0.f};
-    float syz{0.f};
-
-    for ( auto const &point : centeredPoints_ )
-    {
-        sx2 += point.x * point.x;
-        sy2 += point.y * point.y;
-        sz2 += point.z * point.z;
-
-
-        sxy += point.x * point.y;
-        sxz += point.x * point.z;
-        syz += point.y * point.z;
-    }
-
-    inertia_[ dirX ].x = sx2;
-    inertia_[ dirX ].y = sxy;
-    inertia_[ dirX ].z = syz;
-
-    inertia_[ dirY ].x = sxy;
-    inertia_[ dirY ].y = sy2;
-    inertia_[ dirY ].z = syz;
-
-    inertia_[ dirZ ].x = sxz;
-    inertia_[ dirZ ].y = syz;
-    inertia_[ dirZ ].z = sz2;
-
-    Eigen::Matrix3f inertia;
-
-
-    for ( int i = 0; i < 3; ++i )
-    {
-        for ( int j = 0; j < 3; ++j )
-        {
-            inertia( i, j ) = inertia_[ j ][ i ];
-            std::cout << inertia_[ j ][ i ] << " ";
-        }
-        std::cout << "\n";
-    }
-
-    auto solver = Eigen::EigenSolver<Eigen::Matrix3f>{inertia, true};
-
-    auto eigenVector = solver.eigenvectors();
-
-    std::cout << eigenVector << "\n";
-
-    auto eigenValues = solver.eigenvalues();
-
+    std::cout << "Eigen values are: \n";
+    auto const &eigenValues = pca.eigenValues();
     std::cout << eigenValues << "\n";
+
+
+    std::cout << "Eigen vectors are: \n";
+    auto const &eigenVector = pca.eigenVectors();
+    std::cout << eigenVector << "\n";
 }
 
 void ModelVisu::resizeGL( int width, int height )

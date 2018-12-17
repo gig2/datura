@@ -18,7 +18,9 @@
 #include <vector>
 
 #include "ellipsoid.h"
+#include "pca.h"
 #include "transformation.h"
+
 
 class ModelVisu : public QOpenGLWidget
 {
@@ -47,6 +49,8 @@ private:
     std::shared_ptr<MeshNode<Nuage>> cloudNode_;
 
     Transformation transformation_{Mode::manual};
+
+    Pca pca{Mode::automatic};
 
     std::vector<glm::vec3> centeredPoints_;
 
