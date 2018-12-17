@@ -60,6 +60,31 @@ void ModelVisu::initializeGL()
     }
 
     glClearColor( .0f, 0.f, 0.f, .0f );
+
+
+
+    // cloud_ = Nuage{500, 0.001, Distance{glm::vec3{1.f, 1.f, 1.f}}};
+    ellipsoid.setScale( glm::vec3{2.f, 1.f, 3.f} );
+    ellipsoid.setCenter( glm::vec3{-5.f, 0.f, 0.f} );
+    ellipsoid.setOrientation(
+        Quaternion{static_cast<float>( std::cos( 0.5 * ( M_PI / 6.f ) ) ), 0.f,
+                   static_cast<float>( std::sin( 0.5 * ( M_PI / 6.f ) ) ),
+                   0.f} ); // transformation_.rotate( glm::vec3{0.f, 0.f, 1.f}, M_PI / 6.f ) );
+    cloud_ = ellipsoid.computeTransform();
+    cloud_.generateCloud();
+
+    // look_ = transformation_.lookAt( glm::vec3{0.f, 2.f, -20.f}, glm::vec3{0.f, 0.f, 0.f},
+    //                                 glm::vec3{0.f, 1.f, 0.f} );
+
+    // ok manual look At not working
+
+    look_ = glm::lookAt( glm::vec3{0.f, -10.f, 0.f}, glm::vec3{0.f, 0.f, 0.f},
+                         glm::vec3{0.f, 0.f, 1.f} );
+
+    cloudNode_ = std::make_shared<MeshNode<Nuage>>( cloud_ );
+    cloud_.refreshBuffer();
+
+    cloudNode_->updateVertexBuffer();
 }
 
 void ModelVisu::resizeGL( int width, int height )
@@ -70,6 +95,10 @@ void ModelVisu::resizeGL( int width, int height )
     float fov  = 70.;
 
     // need to calculate projection here
+
+    projection_
+        = transformation_.perspective( fov, static_cast<float>( width ) / height, near, far );
+    projection_ = glm::perspective( fov, static_cast<float>( width ) / height, near, far );
 }
 
 void ModelVisu::paintGL()
@@ -80,6 +109,15 @@ void ModelVisu::paintGL()
     glEnable( GL_DEPTH_TEST );
 
     simpleShader_.Enable();
+
+    glm::mat4 mvp = projection_ * look_;
+
+
+    auto mvpLoc = simpleShader_.GetUniformLocation( "MVP" );
+
+    glUniformMatrix4fv( mvpLoc, 1, GL_FALSE, glm::value_ptr( mvp ) );
+
+    cloudNode_->drawPoints();
 
     simpleShader_.Disable();
 }

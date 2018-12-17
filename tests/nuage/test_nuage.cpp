@@ -39,7 +39,7 @@ TEST( aNuageWithEuclideanDist, isContainedInSphere )
 
     auto euclideanDist = Distance{glm::vec3{1.f, 1.f, 1.f}};
 
-    Nuage nuage{5, 0.25, euclideanDist};
+    Nuage nuage{500, 0.005, euclideanDist};
     nuage.generateCloud();
 
     std::vector<float> distance;
