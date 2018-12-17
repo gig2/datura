@@ -74,3 +74,25 @@ glm::vec3 Nuage::cloudBarycenter(){
     //std::cout << barycenter_to_return.x << " " << barycenter_to_return.y << " " << barycenter_to_return.z << std::endl;
     return barycenter_to_return;
 }
+
+glm::mat3 Nuage::inertiaMatrix(){
+    glm::mat3 matrix_to_return{0.f};
+    glm::vec3 b = cloudBarycenter();
+    std::vector<glm::vec3> centered_points = points_;
+
+    // Recenter all points of cloud by its barycenter.
+    for(int i = 0; i < centered_points.size(); i++){
+        centered_points[i] -= b;
+        matrix_to_return[ 0 ][ 0 ] += centered_points[ i ] [ dirX ] * centered_points[ i ] [ dirX ];
+        matrix_to_return[ 0 ][ 1 ] += centered_points[ i ] [ dirX ] * centered_points[ i ] [ dirY ];
+        matrix_to_return[ 0 ][ 2 ] += centered_points[ i ] [ dirX ] * centered_points[ i ] [ dirZ ];
+        matrix_to_return[ 1 ][ 0 ] += centered_points[ i ] [ dirY ] * centered_points[ i ] [ dirX ];
+        matrix_to_return[ 1 ][ 1 ] += centered_points[ i ] [ dirY ] * centered_points[ i ] [ dirY ];
+        matrix_to_return[ 1 ][ 2 ] += centered_points[ i ] [ dirY ] * centered_points[ i ] [ dirZ ];
+        matrix_to_return[ 2 ][ 0 ] += centered_points[ i ] [ dirZ ] * centered_points[ i ] [ dirX ];
+        matrix_to_return[ 2 ][ 1 ] += centered_points[ i ] [ dirZ ] * centered_points[ i ] [ dirY ];
+        matrix_to_return[ 2 ][ 2 ] += centered_points[ i ] [ dirZ ] * centered_points[ i ] [ dirZ ];
+    }
+
+    return matrix_to_return;
+}

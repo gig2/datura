@@ -1,6 +1,7 @@
 #pragma once
 
 #include <glm/vec3.hpp>
+#include <glm/mat3x3.hpp>
 #include <iterator>
 #include <vector>
 
@@ -18,6 +19,7 @@ public:
     Nuage( int n, float dmin, Distance const& distance );
     void generateCloud();
     glm::vec3 cloudBarycenter();
+    glm::mat3 inertiaMatrix();
 
     auto begin() { return std::begin( points_ ); }
     auto end() { return std::end( points_ ); }
