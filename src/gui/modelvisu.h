@@ -48,6 +48,10 @@ private:
 
     Transformation transformation_{Mode::manual};
 
+    std::vector<glm::vec3> centeredPoints_;
+
+    glm::mat3 inertia_;
+
     glm::mat4 projection_;
     glm::mat4 look_;
 

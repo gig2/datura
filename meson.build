@@ -9,6 +9,8 @@ gl_dep           = dependency('GL', required:true)
 glm_dep = dependency('glm',required:true)
 glew_dep = dependency('glew', required:true)
 
+eigen_dep = dependency('eigen3', required:true)
+
 
 openglmeshrender_dep = dependency('OpenGLMeshRender', fallback: ['openglmeshrender', 'openglmeshrender_dep'])
 openglshader_dep = dependency('OpenGLShader', fallback: ['openglshader', 'openglshader_dep'])

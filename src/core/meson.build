@@ -2,8 +2,8 @@ core_sources = files(['autotrans.cpp',
                       'distance.cpp',
                       'ellipsoid.cpp',
                       'nuage.cpp',
-                      'quaternion.cpp',
                       'manualtrans.cpp',
+                      'quaternion.cpp',
                       'transformation.cpp',
                       'transformationfactory.cpp',
                       'transformationimpl.cpp'])
@@ -15,8 +15,9 @@ core_headers = files(['autotrans.h',
                       'ellipsoid.h',
                       'mode.h',
                       'nuage.h',
-                      'quaternion.h',
                       'manualtrans.h',
+                      'quaternion.h',
+                      'recenter.h',
                       'transformation.h',
                       'transformationfactory.h',
                       'transformationimpl.h'])
@@ -27,11 +28,11 @@ datura_core_lib = library('datura_core',
                         sources: [core_sources,
                                   core_headers],
 
-        dependencies: [ glm_dep]
+        dependencies: [ glm_dep, eigen_dep]
         , include_directories: [core_include]
                        )
 
 
 datura_core_dep = declare_dependency(link_with: datura_core_lib,
-                                    dependencies: glm_dep,
+                                    dependencies: [glm_dep, eigen_dep],
                                    include_directories: [core_include])

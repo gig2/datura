@@ -17,6 +17,7 @@ set (core_headers
   mode.h
   nuage.h
   quaternion.h
+  recenter.h
   transformation.h
   transformationfactory.h
   transformationimpl.h
@@ -29,4 +30,5 @@ target_include_directories(datura_core PUBLIC
   $<INSTALL_INTERFACE:include/Datura/core>)
 
 target_link_libraries(datura_core PUBLIC
-  glm)
+  glm
+  Eigen3::Eigen)

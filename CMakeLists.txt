@@ -20,6 +20,8 @@ find_package(OpenGL REQUIRED)
 
 find_package(Git)
 
+find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+
 find_package(glm CONFIG QUIET)
 
 if (NOT glm_FOUND)

@@ -5,6 +5,15 @@
 #endif
 #include <glm/gtx/euler_angles.hpp>
 
+#include "constants.h"
+#include "recenter.h"
+
+#include <iostream>
+
+
+// eigen stuf
+#include <Eigen/Dense>
+#include <Eigen/Eigenvalues>
 
 ModelVisu::ModelVisu( QWidget *parent )
     : QOpenGLWidget( parent )
@@ -77,7 +86,68 @@ void ModelVisu::initializeGL()
     cloudNode_ = std::make_shared<MeshNode<Nuage>>( cloud_ );
     cloud_.refreshBuffer();
 
+
     cloudNode_->updateVertexBuffer();
+
+    centeredPoints_.clear();
+    centeredPoints_.resize( std::distance( std::cbegin( cloud_ ), std::cend( cloud_ ) ) );
+
+    glm::vec3 barycentre{-5.f, 0.f, 0.f};
+
+    recenter( barycentre, std::cbegin( cloud_ ), std::cend( cloud_ ),
+              std::back_inserter( centeredPoints_ ) );
+
+
+    float sx2{0.f};
+    float sy2{0.f};
+    float sz2{0.f};
+
+    float sxy{0.f};
+    float sxz{0.f};
+    float syz{0.f};
+
+    for ( auto const &point : centeredPoints_ )
+    {
+        sx2 += point.x * point.x;
+        sy2 += point.y * point.y;
+        sz2 += point.z * point.z;
+
+
+        sxy += point.x * point.y;
+        sxz += point.x * point.z;
+        syz += point.y * point.z;
+    }
+
+    inertia_[ dirX ].x = sx2;
+    inertia_[ dirX ].y = sxy;
+    inertia_[ dirX ].z = syz;
+
+    inertia_[ dirY ].x = sxy;
+    inertia_[ dirY ].y = sy2;
+    inertia_[ dirY ].z = syz;
+
+    inertia_[ dirZ ].x = sxz;
+    inertia_[ dirZ ].y = syz;
+    inertia_[ dirZ ].z = sz2;
+
+    Eigen::Matrix3f inertia;
+
+
+    for ( int i = 0; i < 3; ++i )
+    {
+        for ( int j = 0; j < 3; ++j )
+        {
+            inertia( i, j ) = inertia_[ j ][ i ];
+            std::cout << inertia_[ j ][ i ] << " ";
+        }
+        std::cout << "\n";
+    }
+
+    auto solver = Eigen::EigenSolver<Eigen::Matrix3f>{inertia, true};
+
+    auto eigenVector = solver.eigenvectors();
+
+    std::cout << eigenVector << "\n";
 }
 
 void ModelVisu::resizeGL( int width, int height )
