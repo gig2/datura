@@ -148,6 +148,10 @@ void ModelVisu::initializeGL()
     auto eigenVector = solver.eigenvectors();
 
     std::cout << eigenVector << "\n";
+
+    auto eigenValues = solver.eigenvalues();
+
+    std::cout << eigenValues << "\n";
 }
 
 void ModelVisu::resizeGL( int width, int height )
