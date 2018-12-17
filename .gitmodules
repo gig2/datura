@@ -16,3 +16,6 @@
 [submodule "external/googletest"]
 	path = external/googletest
 	url = https://github.com/google/googletest
+[submodule "external/eigen"]
+	path = external/eigen
+	url = https://github.com/eigenteam/eigen-git-mirror

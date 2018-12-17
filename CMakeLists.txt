@@ -20,7 +20,25 @@ find_package(OpenGL REQUIRED)
 
 find_package(Git)
 
-find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+find_package(Eigen3 3.3 CONFIG QUIET NO_MODULE)
+
+if (NOT eigen3_FOUND)
+  if (NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/external/eigen/CMakeLists.txt)
+    if (NOT Git_FOUND)
+      message(FATAL_ERROR "Git cannot be found and glm submodule is not init")
+    else()
+      message("Init eigen3 subprojects")
+      execute_process(COMMAND ${GIT_EXECUTABLE} submodule init external/eigen
+                      WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+      execute_process(COMMAND ${GIT_EXECUTABLE} submodule update external/eigen)
+    endif()
+  endif()
+
+  add_subdirectory(external/eigen)
+
+endif()
+
+
 
 find_package(glm CONFIG QUIET)
 
@@ -66,6 +84,8 @@ if (NOT OpenGLMeshRender_FOUND)
   add_subdirectory(external/openglmeshrender)
 
 endif()
+
+
 
 
 add_subdirectory(src)
