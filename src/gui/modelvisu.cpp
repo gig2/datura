@@ -89,10 +89,17 @@ void ModelVisu::initializeGL()
 
     cloudNode_->updateVertexBuffer();
 
+
+    glm::vec3 barycentre
+        = std::accumulate( std::cbegin( cloud_ ), std::cend( cloud_ ), glm::vec3{0.f, 0.f, 0.f} );
+
+    barycentre /= std::distance( std::cbegin( cloud_ ), std::cend( cloud_ ) );
+
+
     centeredPoints_.clear();
     centeredPoints_.resize( std::distance( std::cbegin( cloud_ ), std::cend( cloud_ ) ) );
 
-    glm::vec3 barycentre{-5.f, 0.f, 0.f};
+    // glm::vec3 barycentre{-5.f, 0.f, 0.f};
 
     recenter( barycentre, std::cbegin( cloud_ ), std::cend( cloud_ ),
               std::back_inserter( centeredPoints_ ) );

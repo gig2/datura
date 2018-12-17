@@ -16,6 +16,8 @@ set (core_headers
   ellipsoid.h
   mode.h
   nuage.h
+  pca.h
+  pcaimpl.h
   quaternion.h
   recenter.h
   transformation.h
