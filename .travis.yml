@@ -13,9 +13,8 @@ before_install:
   - sudo apt-get install -qq -y qtbase5-dev
   - sudo apt-get install -qq -y ninja-build
   - sudo apt-get install -qq -y libglm-dev
-  - sudo apt-get install -qq -y libqt5opengl5-dev
-  - sudo apt-get install -qq -y libeigen3-dev
   - git clone https://github.com/g-truc/glm glm --branch 0.9.9.3 && cd glm && cmake . -GNinja && ninja && sudo ninja install && cd ..
+  - git clone https://github.com/eigenteam/eigen-git-mirror eigen && mkdir build-eigen && cd build-eigen && cmake ../eigen -GNinja && ninja && sudo ninja install && cd ..
 
 script:
   - mkdir build && cd build
