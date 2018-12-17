@@ -1,4 +1,5 @@
-core_sources = files(['distance.cpp',
+core_sources = files(['autotrans.cpp',
+                      'distance.cpp',
                       'ellipsoid.cpp',
                       'nuage.cpp',
                       'quaternion.cpp',
@@ -8,7 +9,8 @@ core_sources = files(['distance.cpp',
                       'transformationimpl.cpp'])
 
 
-core_headers = files(['constants.h',
+core_headers = files(['autotrans.h',
+                      'constants.h',
                       'distance.h',
                       'ellipsoid.h',
                       'mode.h',
