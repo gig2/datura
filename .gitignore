@@ -2,3 +2,4 @@ subprojects/openglshader
 subprojects/openglmeshrender
 subprojects/googletest-release-*
 subprojects/packagecache
+CMakeLists.txt.user

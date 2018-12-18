@@ -75,12 +75,9 @@ void ModelVisu::initializeGL()
     cloud_ = ellipsoid.computeTransform();
     cloud_.generateCloud();
 
-    // ok manual look At not working
     look_ = transformation_.lookAt( glm::vec3{0.f, -10.f, 0.f}, glm::vec3{0.f, 0.f, 0.f},
                                     glm::vec3{0.f, 0.f, 1.f} );
 
-    look_ = glm::lookAt( glm::vec3{0.f, -10.f, 0.f}, glm::vec3{0.f, 0.f, 0.f},
-                         glm::vec3{0.f, 0.f, 1.f} );
 
     cloudNode_ = std::make_shared<MeshNode<Nuage>>( cloud_ );
     cloud_.refreshBuffer();
