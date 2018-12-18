@@ -20,6 +20,11 @@ Nuage Ellipsoid::createCloud( int n, float dmin )
     return cloud_to_return;
 }
 
+void Ellipsoid::computeCloud( int n, float dmin )
+{
+    cloud_ = createCloud( n, dmin );
+}
+
 void Ellipsoid::setScale( glm::vec3 const& scale )
 {
     scale_ = scale;

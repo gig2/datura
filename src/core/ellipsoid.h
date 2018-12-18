@@ -26,6 +26,7 @@ public:
     void setCenter( glm::vec3 const& center );
     void setOrientation( Quaternion const& orient );
 
+    void computeCloud( int n, float dmin );
 
 private:
     Mode const mode_;

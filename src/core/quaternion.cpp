@@ -24,19 +24,19 @@ glm::mat4 Quaternion::toMat4() const
 {
     glm::mat4 out{0.f};
 
-    const float a2 = x_ * x_;
-    const float b2 = y_ * y_;
-    const float c2 = z_ * z_;
-    const float d2 = w_ * w_;
+    const float a2 = w_ * w_;
+    const float b2 = x_ * x_;
+    const float c2 = y_ * y_;
+    const float d2 = z_ * z_;
 
-    const float twiceAb = 2.f * x_ * y_;
-    const float twiceAc = 2.f * x_ * z_;
-    const float twiceAd = 2.f * x_ * w_;
+    const float twiceAb = 2.f * w_ * x_;
+    const float twiceAc = 2.f * w_ * y_;
+    const float twiceAd = 2.f * w_ * z_;
 
-    const float twiceBc = 2.f * y_ * z_;
-    const float twiceBd = 2.f * y_ * w_;
+    const float twiceBc = 2.f * x_ * y_;
+    const float twiceBd = 2.f * x_ * z_;
 
-    const float twiceCd = 2.f * z_ * w_;
+    const float twiceCd = 2.f * y_ * z_;
 
     out[ 0 ][ 0 ] = a2 + b2 - c2 - d2;
     out[ 0 ][ 1 ] = twiceBc + twiceAd;

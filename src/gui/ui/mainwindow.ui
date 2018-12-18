@@ -24,6 +24,225 @@
      </rect>
     </property>
    </widget>
+   <widget class="QPushButton" name="createCloud">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>400</y>
+      <width>80</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>create cloud</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>50</y>
+      <width>160</width>
+      <height>296</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QDoubleSpinBox" name="centerX">
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QDoubleSpinBox" name="centerZ">
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>halfOx</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QDoubleSpinBox" name="centerY">
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>halfOy</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QDoubleSpinBox" name="rotY">
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>centerZ</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QDoubleSpinBox" name="halfOz">
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.500000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QDoubleSpinBox" name="halfOx">
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.500000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QDoubleSpinBox" name="rotX">
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+       <property name="value">
+        <double>1.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QDoubleSpinBox" name="rotZ">
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>halfOz</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>centerX</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QDoubleSpinBox" name="halfOy">
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.500000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>centerY</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QDoubleSpinBox" name="rotAngle">
+       <property name="minimum">
+        <double>-7.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>7.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>rotX</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>rotY</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>rotZ</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>rotAngle</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -71,6 +290,21 @@
    <class>ModelVisu</class>
    <extends>QOpenGLWidget</extends>
    <header>modelvisu.h</header>
+   <slots>
+    <slot>setCenterX(double)</slot>
+    <slot>setCenterY(double)</slot>
+    <slot>setCenterZ(double)</slot>
+    <slot>setScaleX(double)</slot>
+    <slot>setScaleY(double)</slot>
+    <slot>setScaleZ(double)</slot>
+    <slot>setRotateAxisX(double)</slot>
+    <slot>setRotateAxisY(double)</slot>
+    <slot>setRotateAxisZ(double)</slot>
+    <slot>setRotateAngle(double)</slot>
+    <slot>setNpoints(int)</slot>
+    <slot>setDmin(double)</slot>
+    <slot>computeCloud()</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources/>
@@ -88,6 +322,182 @@
     <hint type="destinationlabel">
      <x>589</x>
      <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>createCloud</sender>
+   <signal>clicked()</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>computeCloud()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>939</x>
+     <y>268</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>centerX</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setCenterX(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>105</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>centerY</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setCenterY(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>141</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>centerZ</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setCenterZ(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>halfOx</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setScaleX(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>189</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>halfOy</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setScaleY(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>halfOz</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setScaleZ(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rotX</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setRotateAxisX(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>279</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rotY</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setRotateAxisY(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rotZ</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setRotateAxisZ(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>339</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rotAngle</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setRotateAngle(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>369</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
     </hint>
    </hints>
   </connection>

@@ -18,7 +18,7 @@ glm::mat4 Manualtrans::scale( glm::vec3 const& scale ) const
 
 Quaternion Manualtrans::rotate( glm::vec3 const& axis, float angle ) const
 {
-    return Quaternion{axis, angle};
+    return Quaternion{glm::normalize( axis ), angle};
 }
 
 // Build Translate Matrix.

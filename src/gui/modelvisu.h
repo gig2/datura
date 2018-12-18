@@ -28,6 +28,28 @@ class ModelVisu : public QOpenGLWidget
 public:
     explicit ModelVisu( QWidget *parent );
 
+public slots:
+    void setCenterX( double x );
+    void setCenterY( double y );
+    void setCenterZ( double z );
+
+    void setScaleX( double a );
+    void setScaleY( double b );
+    void setScaleZ( double c );
+
+    void setRotateAxisX( double x );
+    void setRotateAxisY( double y );
+    void setRotateAxisZ( double z );
+
+    void setRotateAngle( double theta );
+
+    void setNpoints( int nPoint );
+
+    void setDmin( double dmin );
+
+    void computeCloud();
+
+
 protected:
     void initializeGL() override;
 
@@ -37,6 +59,20 @@ protected:
 
 
 private:
+    void computeCloudAndPca_();
+
+
+    glm::vec3 center_{0.f, 0.f, 0.f};
+    glm::vec3 scale_{1.f, 1.f, 1.f};
+
+    glm::vec3 rotateAxis_{1.f, 0.f, 0.f};
+
+    float rotateAngle_{0.f};
+
+    int nPoints_{500};
+    float dmin_{0.0005};
+
+
     // get them from shader
     int const positionLocation_{0};
     int const colorLocation_{1};
@@ -58,6 +94,7 @@ private:
 
     glm::mat4 projection_;
     glm::mat4 look_;
+
 
     S3DE::Shader simpleShader_;
 };

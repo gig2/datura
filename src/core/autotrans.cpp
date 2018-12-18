@@ -8,7 +8,7 @@ glm::mat4 AutoTransformation::scale( glm::vec3 const& scale ) const
 }
 Quaternion AutoTransformation::rotate( glm::vec3 const& axis, float angle ) const
 {
-    glm::fquat orient{angle, axis};
+    auto orient = glm::angleAxis( angle, axis );
 
     return Quaternion{orient.x, orient.y, orient.z, orient.w};
 }
