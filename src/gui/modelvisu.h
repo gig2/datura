@@ -50,6 +50,22 @@ public slots:
     void computeCloud();
 
 
+    void setCamPos1X( double x );
+    void setCamPos1Y( double y );
+    void setCamPos1Z( double z );
+
+    void setCamTarget1X( double x );
+    void setCamTarget1Y( double y );
+    void setCamTarget1Z( double z );
+
+    void setCamUp1X( double x );
+    void setCamUp1Y( double y );
+    void setCamUp1Z( double z );
+
+    void computeCam1();
+
+    void showCam1();
+
 protected:
     void initializeGL() override;
 
@@ -94,6 +110,13 @@ private:
 
     glm::mat4 projection_;
     glm::mat4 look_;
+
+    glm::mat4 look1_;
+    glm::vec3 pos1_{0.f, 0.f, 0.f};
+    glm::vec3 target1_{0.f, 0.f, 0.f};
+    glm::vec3 up1_{0.f, 0.f, 0.f};
+
+    glm::mat4 look2_;
 
 
     S3DE::Shader simpleShader_;

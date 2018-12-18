@@ -169,6 +169,58 @@ void ModelVisu::computeCloud()
 }
 
 
+
+void ModelVisu::setCamPos1X( double x )
+{
+    pos1_[ dirX ] = static_cast<float>( x );
+}
+void ModelVisu::setCamPos1Y( double y )
+{
+    pos1_[ dirY ] = static_cast<float>( y );
+}
+void ModelVisu::setCamPos1Z( double z )
+{
+    pos1_[ dirZ ] = static_cast<float>( z );
+}
+
+void ModelVisu::setCamTarget1X( double x )
+{
+    target1_[ dirX ] = static_cast<float>( x );
+}
+void ModelVisu::setCamTarget1Y( double y )
+{
+    target1_[ dirY ] = static_cast<float>( y );
+}
+void ModelVisu::setCamTarget1Z( double z )
+{
+    target1_[ dirZ ] = static_cast<float>( z );
+}
+
+void ModelVisu::setCamUp1X( double x )
+{
+    up1_[ dirX ] = static_cast<float>( x );
+}
+void ModelVisu::setCamUp1Y( double y )
+{
+    up1_[ dirY ] = static_cast<float>( y );
+}
+void ModelVisu::setCamUp1Z( double z )
+{
+    up1_[ dirZ ] = static_cast<float>( z );
+}
+
+void ModelVisu::computeCam1()
+{
+    look1_ = transformation_.lookAt( pos1_, target1_, up1_ );
+}
+
+void ModelVisu::showCam1()
+{
+    look_ = look1_;
+    update();
+}
+
+
 void ModelVisu::computeCloudAndPca_()
 {
     ellipsoid.setScale( scale_ );

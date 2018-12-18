@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1180</width>
+    <width>1209</width>
     <height>559</height>
    </rect>
   </property>
@@ -24,31 +24,21 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="createCloud">
-    <property name="geometry">
-     <rect>
-      <x>870</x>
-      <y>400</y>
-      <width>80</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>create cloud</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
       <x>850</x>
       <y>50</y>
-      <width>160</width>
-      <height>296</height>
+      <width>168</width>
+      <height>356</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="1" column="0">
       <widget class="QDoubleSpinBox" name="centerX">
+       <property name="decimals">
+        <number>6</number>
+       </property>
        <property name="minimum">
         <double>-99.000000000000000</double>
        </property>
@@ -57,8 +47,18 @@
        </property>
       </widget>
      </item>
+     <item row="11" column="1">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>N points</string>
+       </property>
+      </widget>
+     </item>
      <item row="3" column="0">
       <widget class="QDoubleSpinBox" name="centerZ">
+       <property name="decimals">
+        <number>6</number>
+       </property>
        <property name="minimum">
         <double>-99.000000000000000</double>
        </property>
@@ -76,6 +76,9 @@
      </item>
      <item row="2" column="0">
       <widget class="QDoubleSpinBox" name="centerY">
+       <property name="decimals">
+        <number>6</number>
+       </property>
        <property name="minimum">
         <double>-99.000000000000000</double>
        </property>
@@ -91,8 +94,25 @@
        </property>
       </widget>
      </item>
+     <item row="10" column="1">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>rotAngle</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>rotY</string>
+       </property>
+      </widget>
+     </item>
      <item row="8" column="0">
       <widget class="QDoubleSpinBox" name="rotY">
+       <property name="decimals">
+        <number>6</number>
+       </property>
        <property name="minimum">
         <double>-99.000000000000000</double>
        </property>
@@ -101,6 +121,23 @@
        </property>
        <property name="value">
         <double>0.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLabel" name="label_12">
+       <property name="text">
+        <string>dmin</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0">
+      <widget class="QSpinBox" name="nPoints">
+       <property name="maximum">
+        <number>10000</number>
+       </property>
+       <property name="value">
+        <number>500</number>
        </property>
       </widget>
      </item>
@@ -113,6 +150,9 @@
      </item>
      <item row="6" column="0">
       <widget class="QDoubleSpinBox" name="halfOz">
+       <property name="decimals">
+        <number>6</number>
+       </property>
        <property name="minimum">
         <double>-99.000000000000000</double>
        </property>
@@ -126,6 +166,9 @@
      </item>
      <item row="4" column="0">
       <widget class="QDoubleSpinBox" name="halfOx">
+       <property name="decimals">
+        <number>6</number>
+       </property>
        <property name="minimum">
         <double>-99.000000000000000</double>
        </property>
@@ -139,6 +182,9 @@
      </item>
      <item row="7" column="0">
       <widget class="QDoubleSpinBox" name="rotX">
+       <property name="decimals">
+        <number>6</number>
+       </property>
        <property name="minimum">
         <double>-99.000000000000000</double>
        </property>
@@ -152,6 +198,9 @@
      </item>
      <item row="9" column="0">
       <widget class="QDoubleSpinBox" name="rotZ">
+       <property name="decimals">
+        <number>6</number>
+       </property>
        <property name="minimum">
         <double>-99.000000000000000</double>
        </property>
@@ -170,35 +219,24 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>centerX</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QDoubleSpinBox" name="halfOy">
-       <property name="minimum">
-        <double>-99.000000000000000</double>
+     <item row="12" column="0">
+      <widget class="QDoubleSpinBox" name="dmin">
+       <property name="decimals">
+        <number>6</number>
        </property>
        <property name="singleStep">
-        <double>0.020000000000000</double>
+        <double>0.000200000000000</double>
        </property>
        <property name="value">
-        <double>0.500000000000000</double>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>centerY</string>
+        <double>0.000500000000000</double>
        </property>
       </widget>
      </item>
      <item row="10" column="0">
       <widget class="QDoubleSpinBox" name="rotAngle">
+       <property name="decimals">
+        <number>6</number>
+       </property>
        <property name="minimum">
         <double>-7.000000000000000</double>
        </property>
@@ -213,17 +251,10 @@
        </property>
       </widget>
      </item>
-     <item row="7" column="1">
-      <widget class="QLabel" name="label_7">
+     <item row="1" column="1">
+      <widget class="QLabel" name="label">
        <property name="text">
-        <string>rotX</string>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="1">
-      <widget class="QLabel" name="label_8">
-       <property name="text">
-        <string>rotY</string>
+        <string>centerX</string>
        </property>
       </widget>
      </item>
@@ -234,10 +265,270 @@
        </property>
       </widget>
      </item>
-     <item row="10" column="1">
-      <widget class="QLabel" name="label_10">
+     <item row="5" column="0">
+      <widget class="QDoubleSpinBox" name="halfOy">
+       <property name="decimals">
+        <number>6</number>
+       </property>
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.500000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="label_7">
        <property name="text">
-        <string>rotAngle</string>
+        <string>rotX</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>centerY</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>1020</x>
+      <y>50</y>
+      <width>168</width>
+      <height>311</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_14">
+       <property name="text">
+        <string>Pos Y</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QDoubleSpinBox" name="target1Z">
+       <property name="decimals">
+        <number>6</number>
+       </property>
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QDoubleSpinBox" name="cam1y">
+       <property name="decimals">
+        <number>6</number>
+       </property>
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QDoubleSpinBox" name="up1y">
+       <property name="decimals">
+        <number>6</number>
+       </property>
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_13">
+       <property name="text">
+        <string>Pos X</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="label_16">
+       <property name="text">
+        <string>Target X</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QDoubleSpinBox" name="target1X">
+       <property name="decimals">
+        <number>6</number>
+       </property>
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QDoubleSpinBox" name="cam1x">
+       <property name="decimals">
+        <number>6</number>
+       </property>
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QDoubleSpinBox" name="cam1z">
+       <property name="decimals">
+        <number>6</number>
+       </property>
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLabel" name="label_18">
+       <property name="text">
+        <string>Target Z</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_15">
+       <property name="text">
+        <string>Pos Z</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="label_17">
+       <property name="text">
+        <string>Target Y</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QDoubleSpinBox" name="target1Y">
+       <property name="decimals">
+        <number>6</number>
+       </property>
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QDoubleSpinBox" name="up1x">
+       <property name="decimals">
+        <number>6</number>
+       </property>
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QDoubleSpinBox" name="up1z">
+       <property name="decimals">
+        <number>6</number>
+       </property>
+       <property name="minimum">
+        <double>-99.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.020000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="label_19">
+       <property name="text">
+        <string>Up X</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="label_20">
+       <property name="text">
+        <string>Up Y</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLabel" name="label_21">
+       <property name="text">
+        <string>Up Z</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>370</y>
+      <width>160</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="computeCam1">
+       <property name="text">
+        <string>compute cam 1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="showCam1">
+       <property name="text">
+        <string>show cam 1</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>849</x>
+      <y>410</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="createCloud">
+       <property name="text">
+        <string>create cloud</string>
        </property>
       </widget>
      </item>
@@ -249,7 +540,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1180</width>
+     <width>1209</width>
      <height>20</height>
     </rect>
    </property>
@@ -304,6 +595,17 @@
     <slot>setNpoints(int)</slot>
     <slot>setDmin(double)</slot>
     <slot>computeCloud()</slot>
+    <slot>setCamPos1X(double)</slot>
+    <slot>setCamPos1Y(double)</slot>
+    <slot>setCamPos1Z(double)</slot>
+    <slot>setCamTarget1X(double)</slot>
+    <slot>setCamTarget1Y(double)</slot>
+    <slot>setCamTarget1Z(double)</slot>
+    <slot>setCamUp1X(double)</slot>
+    <slot>setCamUp1Y(double)</slot>
+    <slot>setCamUp1Z(double)</slot>
+    <slot>computeCam1()</slot>
+    <slot>showCam1()</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -494,6 +796,214 @@
     <hint type="sourcelabel">
      <x>888</x>
      <y>369</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nPoints</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setNpoints(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>901</x>
+     <y>399</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dmin</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setDmin(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>901</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>computeCam1</sender>
+   <signal>clicked()</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>computeCam1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1109</x>
+     <y>421</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>showCam1</sender>
+   <signal>clicked()</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>showCam1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1109</x>
+     <y>452</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cam1x</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setCamPos1X(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1071</x>
+     <y>103</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cam1y</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setCamPos1Y(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1071</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cam1z</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setCamPos1Z(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1071</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>target1X</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setCamTarget1X(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1071</x>
+     <y>205</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>target1Y</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setCamTarget1Y(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1071</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>target1Z</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setCamTarget1Z(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1071</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>up1x</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setCamUp1X(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1071</x>
+     <y>307</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>up1y</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setCamUp1Y(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1071</x>
+     <y>341</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>up1z</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>setCamUp1Z(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1071</x>
+     <y>375</y>
     </hint>
     <hint type="destinationlabel">
      <x>414</x>
